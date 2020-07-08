@@ -176,3 +176,12 @@ origin 으로 설정된 원격저장소의 master 브랜치로 push 한다.
 $ git push origin master
 ```
 
+### 2.3 clone
+
+> 원격 저장소를 복제해온다.
+
+```bash
+~/집 $ git clone https://github.com/soraidaaaaa/TIL_nlp
+~/집 $ cd TIL
+```
+
