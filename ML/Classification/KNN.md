@@ -18,4 +18,4 @@ Euclidean distance 의 경우 두 점의 최단거리로 피타고라스 정리�
 
 Minkowski distance 의 경우 Manhattan 과 Euclidean 의 일반화로 m 이 1 일 때는 manhattan과 같은 값이 2일때는 Euclidean과 같은 값이 된다. 
 
-![image-20200709113014070](C:%5CUsers%5Cstudent%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200709113014070.png)
+![image-20200709113702516](markdown-images/image-20200709113702516.png)
