@@ -12,3 +12,7 @@ Autoencoder 의 역할 중에 차원 축소가 존재한다.
 
 차원축소에 있어서 주용한 feature를 없애지 않는 것이 중요하다...
 
+>  deep learning 에서 표준화는 필수이다.. 이유는 feature 마다의 영향을 줄 수 있는 값에 영향이 크기 때문이다.
+
+![image-20200710105155522](markdown-images/image-20200710105155522.png)
+
