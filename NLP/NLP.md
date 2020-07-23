@@ -26,7 +26,7 @@ TF-IDF 값이 검색문의 문서 vector 가 된다. 그렇기 때문에 두 vec
 
 
 
-## Topic Model
+### Topic Model
 
 차원 축소에는 두가지 방법이 있다
 
@@ -40,7 +40,7 @@ SVD 는 차원축소 뿐 아니라 Topic Model 에도 쓰인다 'LSA'
 
 
 
-### Topic Model
+#### Topic Model
 
 LSA : SVD 원리를 사용한다
 
@@ -54,9 +54,9 @@ LDA - 두개의 다항 분포를 추정하고, 해당 문서를 특정 topic 에
 
 
 
-## Text-to-Vector
+### Text-to-Vector
 
-### 1. 통계적 기반, 빈도기반, 카운트 기반 => TFIDF, BOW(Bag of word)
+#### 1. 통계적 기반, 빈도기반, 카운트 기반 => TFIDF, BOW(Bag of word)
 
 #### Bow:
 
@@ -119,4 +119,46 @@ model = LDA(news_bow,
 
 
 
-### 2. Embedding 기반
+`vocab.token2id` 를 사용하면 vocab list 에서 속해있는 단어의 id 번호를 볼 수 있다
+
+
+
+#### 2. Embedding 기반 (후술...)
+
+
+
+### Document Summary
+
+#### TextRank
+
+각 문장의 TextRank 초기화...
+
+TR(a) = TR(b) = TR(c) = TR(d) = 1/4 = 0.25
+
+그 뒤 문서간 유사도를 측정 하고 해당 값을 통해 weight 를 제공한다
+
+textRank 계산 - 반복 진행한다.
+
+### Anaphora Resolution (조응어 해석)
+
+John is a man. He walks. 에서 He 는 John을 재 표현한 것이다.
+
+즉 He 는 John 에 의존 하며, 앞에 나온 단어에 의존 하는 것을 `전방조응`이라 하며 
+
+I do not want to meet him. John was being mean to me. 와 같이 him 이 뒤에 나오는 문장 John을 의미한다면 `후방조응` 이라고 한다
+
+이름을 구별하기 위해서는 문장 구조를 분해해야하고 (chunk), 이름의 성별을 구별하기 위해서 name corpus 를 사용한 학습을 진행한다. 
+
+
+
+## Word Embedding
+
+현재 NLP의 주류가 되는 원리는 단어기반이다. 이는 의미를 가지는 가장 작은 단위가 단어이기 때문이다. 
+
+이러한 단어의 빈도수를 수치화 하여 자연어분석을 하는 방식이 지금까지 배운 TFIDF / BoW / Doc2BoW 같은 방식이다. 하지만 이런 빈도기반의 분석 방식은 단어 자체에 의미를 부여하지 못 하고 이로 인해 중요도 같은 판단에 있어 정확도가 낮아질 수 밖에 없다.
+
+단어에게 의미를 부여하기 위해서는 학습 과정이 필요하며, 학습을 통해 단어를 수치화 (벡터화) 하는 방법을 통해 word embedding이 이루어진다.
+
+![image-20200723102217467](markdown-images/image-20200723102217467.png)
+
+단어간의 embedding 값을 가져와서 비교하는 것도 가능하고, CNN LSTM 을 병합하여 사용하는 것도 가능하다
