@@ -162,3 +162,5 @@ I do not want to meet him. John was being mean to me. 와 같이 him 이 뒤에 
 ![image-20200723102217467](markdown-images/image-20200723102217467.png)
 
 단어간의 embedding 값을 가져와서 비교하는 것도 가능하고, CNN LSTM 을 병합하여 사용하는 것도 가능하다
+
+단점 : 동음이의어에 대해서 같은 vector 가 주어지기 때문에 분석의 한계가 있다.
