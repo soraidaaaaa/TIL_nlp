@@ -1,6 +1,10 @@
 # NLP 실습
 
-## TF - IDF
+## WordEncoding
+
+단순 수치화를 통해 방법론적으로 빈도기반(통계적 기반)의 분석을 진행한다.
+
+### TF - IDF
 
 빈도를 기반 하여 중요도 및 유사성을 판단한다
 
@@ -26,7 +30,7 @@ TF-IDF 값이 검색문의 문서 vector 가 된다. 그렇기 때문에 두 vec
 
 
 
-### Topic Model
+#### Topic Model
 
 차원 축소에는 두가지 방법이 있다
 
@@ -40,7 +44,7 @@ SVD 는 차원축소 뿐 아니라 Topic Model 에도 쓰인다 'LSA'
 
 
 
-#### Topic Model
+##### Topic Model
 
 LSA : SVD 원리를 사용한다
 
@@ -164,3 +168,43 @@ I do not want to meet him. John was being mean to me. 와 같이 him 이 뒤에 
 단어간의 embedding 값을 가져와서 비교하는 것도 가능하고, CNN LSTM 을 병합하여 사용하는 것도 가능하다
 
 단점 : 동음이의어에 대해서 같은 vector 가 주어지기 때문에 분석의 한계가 있다.
+
+단어들의 관계, 의미적인 유사성을 갖도록 수치화한다 방법론적으로 학습을 통해 단어들을 수치 벡터로 변환한다
+
+### CBOW & Skip-gram
+
+기계가 단어의 의미를 파악... 
+
+#### CBOW(Continuous Bag of Words) 
+
+주변의 단어를 기반으로 중간에 있는 단어를 예측하는 방식이다.
+
+예시 문장 = 'I have played computer game' 
+
+> 'I have ____________ computer game' 일 때 빈칸에 들어갈 수 있는 단어를 예측한다
+
+각각의 center word(중심 단어), context word(주변 단어)를 one-hot으로 코딩되어있을 때, played를 center word 로 한다면 [0, 0, 1, 0 ,0]이 될 것이며, context word 는 have ([0, 1, 0, 0, 0]) 와 computer ([0,0,0,1,0]) 으로 표현 가능하다
+
+
+
+#### Skip-gram
+
+CBOW와 반대되는 개념으로 center word를 기반으로 context word를 예측하는 방식이다.
+
+> computer 를 제공 했을 때 들어갈 수 있는 단어를 예측한다. 단순히 예측이 아닌 해당 단어들의 context 별로 묶어주는 vector 를 생산한다
+
+
+
+##### 단점
+
+1. word-embedding 의 특성을 따라 동음이의어에 대한 분석이 어렵다 (2020 현재로썬 해결하기 어렵다)
+2. 출력층이 softmax (one=hot) 이기 때문에 계산량이 많다. 실무에서는 3~5 만개 정도의 vocab 이 계속 softmax 로 돌아간다. 
+   * 해당 문제를 해결하기 위하여 Skip-gram Negative Sampling 이란 기법이 나오게 되었다. 
+3. OOV 문제가 된다 새로운 단어에 대한 vector 가 없다보니 문제가 될 수 있다 
+
+###### 보완방법
+
+보완방법으로 FastText (OOV 처리), GloVe (Global Vectors for Word Representation) (TFIDF & Word2Vec 혼용), ELMo(Embeddings from Language Model) (동음이의어 처리)
+
+
+
