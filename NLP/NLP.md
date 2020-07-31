@@ -207,4 +207,3 @@ CBOW와 반대되는 개념으로 center word를 기반으로 context word를 �
 보완방법으로 FastText (OOV 처리), GloVe (Global Vectors for Word Representation) (TFIDF & Word2Vec 혼용), ELMo(Embeddings from Language Model) (동음이의어 처리)
 
 
-
