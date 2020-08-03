@@ -171,6 +171,10 @@ I do not want to meet him. John was being mean to me. 와 같이 him 이 뒤에 
 
 단어들의 관계, 의미적인 유사성을 갖도록 수치화한다 방법론적으로 학습을 통해 단어들을 수치 벡터로 변환한다
 
+
+
+* 임베딩 벡터는 bias 값이 존재하지 않는다
+
 ### CBOW & Skip-gram
 
 기계가 단어의 의미를 파악... 
