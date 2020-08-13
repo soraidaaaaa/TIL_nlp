@@ -14,8 +14,11 @@ Encoder는 many-to-one 모형을 띄며 결과값으로 short-term state (h), lo
 
 
 
-## Seq2Seq-Attention 모델
+## Seq2Seq-Attention Model
 
 seq2seq2 모델의 경우 고정된 크기의 벡터에 정보를 압축하다보니 정보 손실이 발생한다. 이를 보정하기 위해 attention 모델이 개발되었다. Attention의 기본 아이디어는 decoder 의 출력 time step 마다 인코더에서 천체 입력 문장을 다시 한 번 참고 하여 진행하는 것이다. 단순히 연관성 있는 단어를 찾는 것이 아닌 관련 있는 단어에 집중을 하는 것이다.
 
 attention score를 구해서 encoder 의 출력값과 다시 곱하여 attention value 를 구한 뒤 decoder의 값과 concatenate 해주어서 최종 output value를 구한다.
+
+## Transformer Model (Self-Attention)
+
