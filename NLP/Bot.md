@@ -22,3 +22,20 @@ attention score를 구해서 encoder 의 출력값과 다시 곱하여 attention
 
 ## Transformer Model (Self-Attention)
 
+Attention 모델에서 RNN(LSTM)을 제거한 모델로, 인코더와 디코더 모두 attention 모델로 이루어져 있다. 인코더와 디코더 모두 여러 단계의 층으로 구성되어있으며, multi-haed attention, feedfoward network 등 이후에 add&normalization 과정이 진행된다.
+
+Attenton 모델과는 다르게 encoder와 decoder 모두 e 값을 반환하며, 각각 W, K, V 값으로 불린다. Attention 모델의 경우 K와 V의 값이 같지만, transformer에서는 각각 다른 weight 때문에 다른 값이 될 수 있다.
+
+### FastText
+
+word2vec은 oov문제가 존재한다. 이를 보완하기 위해 FastText 개념이 사용되었다. 기본 toekn 사전을 구축한 뒤 n-gram character 방식으로 sub-word 개념을 사용한다. hash-table 을 vocab-size 보다 크게 생성을 해서 미리 확보해둔다. 
+
+word2vec 형식의 경우 단어를 tokenizing 한 후에 embedding 을 진행하여 단어를 한개의 vector로 생산한다. 반면, hash-table 에는 collision 이 발생할 수 있지만 DB 에서 overflow table을 사용하여 문제를 해결한다. 하지만 overflow page 가 늘어나면 검색 속도가 떨어지고, 너무 수가 많아지면 (임계치를 초과) hash-table 을 늘려서 DB 를 재구성 한다 'reorganization'.  기존의 단어들의 위치가 변경된다. 
+
+### WordPiece, Byte pair encoding, Sentence Piece
+
+빈도가 높은 문자열들은 하나의 "unit" 으로 사전에 등록하여 사용한다. 
+
+> 나는 학교에 간다
+
+라는 문장을 '학교' '나' ' 는'  '간다' 로 나누어 빈도를 관찰한다 
