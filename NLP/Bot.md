@@ -46,6 +46,8 @@ BERT의 출력은 Transformer Encoder의 출력과 같다. 이러한 BERT 를 pr
 
 두 문장을 넣어서 관계를 확인하는 것도 가능. TASK2, TASK1을 통해 두문장, 한문장 작업이 가능하다. 
 
+NSP 랑 MLM 배워보자!
+
 ### Chatbot 활용방법
 
 BERT를 chatbot 혹은 machine translation에 사용하는 경우, decoder가 없기 때문에 encoder의 output을 그대로 사용한다. 문장간의 흐름을 분석한다. 
